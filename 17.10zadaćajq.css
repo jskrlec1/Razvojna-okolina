@@ -1,0 +1,7 @@
+.striped {
+    background-color: lightgray;
+}
+
+table tr:hover {
+    background-color: yellow;
+  }
