@@ -1,8 +1,6 @@
 /*1. Pomoću jQueryja:
 	
-	- pratite resize događaj na korisničkom ekranu ispisujući širinu ekrana u konzolu
-	- pratite kretanje miša i na ulazak miša preko retka tablice promijenite mu pozadinsku boju u žutu
-	- na izlazak miša sa retka mora se pozadinska boja vratiti na prijašnju */
+	- pratite resize događaj na korisničkom ekranu ispisujući širinu ekrana u konzolu */
 
 $(document).ready(function () {
   $(window).on("resize", function () {
@@ -21,6 +19,16 @@ $(document).ready(function () {
   function afterRender() {
     $('[data-toggle="popover"]').popover();
     $("table th").css("color", "darkBlue");
+    //pratite kretanje miša i na ulazak miša preko retka tablice promijenite mu pozadinsku boju u žutu
+    //na izlazak miša sa retka mora se pozadinska boja vratiti na prijašnju 
+    $("table tr").on("mouseenter", (event) => {
+      $(event.currentTarget).css("backgroundColor", "yellow");
+    });
+
+    $("table tr").on("mouseleave", (event) => {
+      $(event.currentTarget).removeAttr("style");
+    });
+
     addStripes();
 
     setTimeout(function () {
